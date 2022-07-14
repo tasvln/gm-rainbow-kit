@@ -1,0 +1,25 @@
+.connected {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    a {
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  button {
+    background: #000;
+    color: #fff;
+    font-size: 600;
+  }
+}
