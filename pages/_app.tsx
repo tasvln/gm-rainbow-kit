@@ -20,10 +20,7 @@ const {
   provider
 } = configureChains(
   [
-    chain.mainnet, 
-    chain.polygon, 
-    chain.optimism, 
-    chain.arbitrum
+    chain.ropsten
   ],
   [
     alchemyProvider({ alchemyId: alchemyId }),
