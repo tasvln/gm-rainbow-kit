@@ -3,9 +3,7 @@ import { HomeView } from 'views';
 
 const Home: NextPage = () => {
   return (
-    <main>
-      <HomeView />
-    </main>
+    <HomeView />
   )
 }
 

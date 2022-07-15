@@ -6,20 +6,29 @@
   justify-content: center;
 
   p {
-    font-size: 1.5rem;
     font-weight: bold;
-
-    a {
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 
   button {
     background: #000;
     color: #fff;
-    font-size: 600;
+    font-weight: 600;
+    margin-top: 24px;
+    width: 100px;
+    height: 35px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+      border: 2px solid #000;
+    }
+  }
+
+  a{
+    margin-top: 16px;
+    font-size: 14px;
+    text-decoration: underline;
   }
 }

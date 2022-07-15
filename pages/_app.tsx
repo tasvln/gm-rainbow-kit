@@ -1,5 +1,7 @@
 import 'styles/index.scss';
 import type { AppProps } from 'next/app';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // rainbow kit & wagmi imports
 import '@rainbow-me/rainbowkit/styles.css';
@@ -12,15 +14,23 @@ import {
   createClient,
   WagmiConfig,
 } from 'wagmi';
-import { alchemyId } from 'utils/variables';
+import { alchemyId, environment } from 'utils/variables';
 
 // rainbow kit & wagmi configs
+let chainNetwork;
+
+if (environment === 'development') {
+  chainNetwork = chain.ropsten;
+} else {
+  chainNetwork = chain.mainnet;
+}
+
 const { 
   chains, 
   provider
 } = configureChains(
   [
-    chain.ropsten
+    chainNetwork
   ],
   [
     alchemyProvider({ alchemyId: alchemyId }),
@@ -44,6 +54,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <Component {...pageProps} />
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover={false}
+        />
       </RainbowKitProvider>
     </WagmiConfig>
   )
